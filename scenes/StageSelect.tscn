@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/customFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/level-1.png" type="Texture" id=2]
+[ext_resource path="res://assets/level-2.png" type="Texture" id=3]
+[ext_resource path="res://assets/Fonts/Raw/continuum bold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scripts/linkbuttons.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 85
+font_data = ExtResource( 4 )
+
+[node name="Node2D" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.141176, 0.168627, 0.458824, 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -1.0
+margin_top = 6.0
+margin_right = 1027.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 1 )
+text = "STAGE SELECT"
+align = 1
+
+[node name="Lv1" type="LinkButton" parent="."]
+margin_left = 216.598
+margin_top = 417.712
+margin_right = 325.598
+margin_bottom = 452.712
+custom_fonts/font = ExtResource( 1 )
+text = "Level 1"
+script = ExtResource( 5 )
+scene_to_load = "Level 1"
+
+[node name="Lv2" type="LinkButton" parent="."]
+margin_left = 704.598
+margin_top = 417.712
+margin_right = 813.598
+margin_bottom = 452.712
+focus_mode = 2
+custom_fonts/font = ExtResource( 1 )
+text = "Level 2"
+script = ExtResource( 5 )
+scene_to_load = "Level 2"
+
+[node name="Level-2" type="Sprite" parent="."]
+position = Vector2( 760.598, 273.712 )
+scale = Vector2( 0.321081, 0.337623 )
+texture = ExtResource( 3 )
+
+[node name="Level-1" type="Sprite" parent="."]
+position = Vector2( 264.598, 273.712 )
+scale = Vector2( 0.35695, 0.35695 )
+texture = ExtResource( 2 )
+
+[connection signal="pressed" from="Lv1" to="Lv1" method="_on_linkButton_pressed"]
+[connection signal="pressed" from="Lv2" to="Lv2" method="_on_linkButton_pressed"]
